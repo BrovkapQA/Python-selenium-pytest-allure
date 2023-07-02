@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 
+from pages.forgot_password_page import ForgotPasswordPage
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.registration_page import RegistrationPage
@@ -31,3 +32,11 @@ def main_page(driver):
 def registration_page(driver):
     wait = WebDriverWait(driver, 10)
     return RegistrationPage(driver, wait)
+
+@pytest.fixture(scope="function")
+def forgot_password_page(driver):
+    wait = WebDriverWait(driver, 10)
+    return ForgotPasswordPage(driver, wait)
+
+
+

@@ -4,7 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class BasePage:
 
-    def __init__(self, driver, wait):
+    def __init__(self, driver, wait: WebDriverWait):
         self.driver = driver
         self.wait = wait
 
