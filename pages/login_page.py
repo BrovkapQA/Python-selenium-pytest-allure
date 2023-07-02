@@ -23,7 +23,7 @@ class LoginPage(BasePage):
     ERROR_FILD = (By.XPATH, "//span[@class='flush-form']")
     FORGOT_PASSWORD = (By.XPATH, '//a[@class="login-screen__bottom-link"]')
 
-    @allure.step("Log in with username: {username} and password: {password}")
+    @allure.step("Log in with username and password")
     def login(self, login_email, login_password):
         self.send_keys(self.EMAIL, login_email)
         self.send_keys(self.PASSWORD, login_password)

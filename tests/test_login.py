@@ -10,7 +10,7 @@ class TestLogin(BaseTest):
     @allure.description("Valid login")
     @allure.title("Login with valid credentials test")
     def test_valid_login(self, login_page, main_page):
-        login_page.login("test_user_1@gmail.com", "Qwerty123")
+        login_page.login('test_user_1@gmail.com', "Qwerty123")
         assert "Вы успешно авторизовались" == main_page.successful_authorization(), "The user is not logged in"
 
     @allure.description("Invalid login(password or login)")
