@@ -12,8 +12,8 @@ class ForgotPasswordPage(BasePage):
 
     FILD_EMAIL = (By.XPATH, '//input[@class="input-form__input"]')
     CONFIRM_BUTTON = (By.XPATH, '//input[@id="submit"]')
-    SUCCESS_MESSAGE = (By.XPATH, '//div[@id="submit"]')
-    INVALID_EMAIL_MESSAGE = (By.XPATH, '//span[@class="flush-form"')
+    SUCCESS_MESSAGE = (By.XPATH, '//div[@class="alert alert-primary"]')
+    INVALID_EMAIL_MESSAGE = (By.XPATH, '//span[@class="flush-form"]')
     NOT_REGISTERED_USER_MESSAGE = (By.XPATH, '//div[@class="alert alert-primary"]')
 
     def send_password_reset_link(self, email):
