@@ -19,8 +19,10 @@ class ForgotPasswordPage(BasePage):
 
     @allure.step("Sending a link to restore the password")
     def send_password_reset_link(self, email):
-        self.send_keys(self.FILD_EMAIL, email)
-        self.click(self.CONFIRM_BUTTON)
+        with allure.step("send email for restore the password"):
+            self.send_keys(self.FILD_EMAIL, email)
+            with allure.step("Confirm sending"):
+                self.click(self.CONFIRM_BUTTON)
 
     @allure.step("Message about successful password reset")
     def get_success_message(self):

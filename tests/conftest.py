@@ -11,9 +11,8 @@ from pages.registration_page import RegistrationPage
 @pytest.fixture(scope="function")
 def driver():
     driver = webdriver.Chrome()
-    driver.get("https://becbt.online/login")
     driver.maximize_window()
-
+    driver.get("https://becbt.online/login")
     yield driver
     driver.quit()
 
