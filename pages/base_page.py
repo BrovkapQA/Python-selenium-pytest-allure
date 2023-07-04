@@ -20,10 +20,3 @@ class BasePage:
 
     def get_text(self, locator):
         return self.wait.until(EC.visibility_of_element_located(locator)).text
-
-    # def go_to_element(self, element):
-    #     return self.driver.execute_script("argument[0].scrollIntoView({ behavior: 'smooth', block: 'center' });",
-    #                                       element)
-    #
-
-
