@@ -1,41 +1,27 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.support.wait import WebDriverWait
-
-from pages.forgot_password_page import ForgotPasswordPage
-from pages.login_page import LoginPage
-from pages.main_page import MainPage
-from pages.registration_page import RegistrationPage
+from utilities import ReadConfiguration
 
 
-@pytest.fixture(scope="function")
-def driver():
-    driver = webdriver.Chrome()
+@pytest.fixture()
+def setup_and_teardown(request):
+    browser = ReadConfiguration.read_configuration("basic info", "browser")
+    driver = None
+    if browser.__eq__("chrom"):
+        driver = webdriver.Chrome()
+    elif browser.__eq__("firefox"):
+        driver = webdriver.Firefox()
+    elif browser.__eq__("edge"):
+        driver = webdriver.Edge()
+    else:
+        print("Provide a valid browser name from this list chrome/firefox/edge")
+
     driver.maximize_window()
-    driver.get("https://becbt.online/login")
-    yield driver
+    base_url = ReadConfiguration.read_configuration("basic info", "url")
+    driver.get(base_url)
+    request.cls.driver = driver
+    yield
     driver.quit()
-
-@pytest.fixture(scope="function")
-def login_page(driver):
-    wait = WebDriverWait(driver, 10)
-    return LoginPage(driver, wait)
-
-
-@pytest.fixture(scope="function")
-def main_page(driver):
-    wait = WebDriverWait(driver, 10)
-    return MainPage(driver, wait)
-
-@pytest.fixture(scope="function")
-def registration_page(driver):
-    wait = WebDriverWait(driver, 10)
-    return RegistrationPage(driver, wait)
-
-@pytest.fixture(scope="function")
-def forgot_password_page(driver):
-    wait = WebDriverWait(driver, 10)
-    return ForgotPasswordPage(driver, wait)
 
 
 
