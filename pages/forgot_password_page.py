@@ -6,8 +6,8 @@ from pages.base_page import BasePage
 
 class ForgotPasswordPage(BasePage):
 
-    def __init__(self, driver, wait):
-        super().__init__(driver, wait)
+    def __init__(self, driver):
+        super().__init__(driver)
 
     # Locators
 
