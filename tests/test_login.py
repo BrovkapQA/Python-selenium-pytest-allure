@@ -7,9 +7,8 @@ from utilities import ExcelUtilities
 
 
 @pytest.mark.usefixtures("setup_and_teardown")
-@allure.severity("Blocker")
 @allure.feature("Login")
-class TestLogin():
+class TestLogin:
 
     @pytest.mark.parametrize("email_address, password",
                              ExcelUtilities.get_data_from_excel("ExcelData/UserData.xlsx", "ValidLogin"))
