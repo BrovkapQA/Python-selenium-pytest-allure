@@ -1,3 +1,4 @@
+from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -20,3 +21,10 @@ class BasePage:
 
     def get_text(self, locator):
         return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator)).text
+
+    def select_month(self, locator, month):
+        dropdown = Select(WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator)))
+        return dropdown.select_by_visible_text(month)
+
+
+
