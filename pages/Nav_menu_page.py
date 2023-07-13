@@ -11,30 +11,30 @@ class NavMenuPage(BasePage):
     #Locators
 
     # NAV_MENU = '//ul[@class="nav-menu__inner"]'
-    PROFILE = (By.XPATH, '//a[@href="/dashboard"]')
+    PROFILE = (By.XPATH, '//ul[@class="nav-menu"]/li[1]')
     PERSONAL_ACCOUNT = (By.XPATH, '//a[@href="/dashboard"]')
     QUESTIONNAIRE = (By.XPATH, '//a[@href="/new-edit-profile"]')
     FAVORITES = (By.XPATH, '//a[@href="/bookmarks"]')
     SETTINGS = (By.XPATH, '//a[@href="/presets"]')
 
-    MESSAGES = (By.XPATH, '(//li[@class="nav-menu__list nav-menu__list--absolute"])[1]')
-    NOTIFICATION = (By.XPATH, '//a[href="/dialogs"]')
+    MESSAGES = (By.XPATH, '//ul[@class="nav-menu"]/li[2]')
+    NOTIFICATION = (By.XPATH, '//a[@href="/dialogs"][2]')
     MESSANGER = (By.XPATH, '//a[@href="/messenger"]')
 
-    SESSIONS = (By.XPATH, '(//li[@class="nav-menu__list nav-menu__list--absolute"])[2]')
-    CALENDAR = (By.XPATH, '//li[@href="/new-calendar"]')
-    SEANS_SUGGESTIONS = (By.XPATH, '//li[@href="/seance-suggestions"]')
-    TECHNIQUES = (By.XPATH, '//li[@href="/techniques"]')
-    NOTICE = (By.XPATH, '//li[@href="/cards"]')
+    SESSIONS = (By.XPATH, '//ul[@class="nav-menu"]/li[3]')
+    CALENDAR = (By.XPATH, '//a[@href="/new-calendar"]')
+    SEANS_SUGGESTIONS = (By.XPATH, '//a[@href="/seance-suggestions"]')
+    TECHNIQUES = (By.XPATH, '//a[@href="/techniques"]')
+    NOTICE = (By.XPATH, '//a[@href="/cards"]')
 
-    AKPP = (By.XPATH, '(//li[@class="nav-menu__list nav-menu__list--absolute"])[3]')
+    AKPP = (By.XPATH, '//ul[@class="nav-menu"]/li[4]')
 
-    ASSOCIATION = (By.XPATH, '(//li[@class="nav-menu__list nav-menu__list--absolute"])[4]')
+    ASSOCIATION = (By.XPATH, '//ul[@class="nav-menu"]/li[5]')
 
-    LEARNING = (By.XPATH, '(//li[@class="nav-menu__list nav-menu__list--absolute"])[5]')
+    LEARNING = (By.XPATH, '(//ul[@class="nav-menu"]/li[6]')
 
 
-    FINANCE = (By.XPATH, '(//li[@class="nav-menu__list nav-menu__list--absolute"])[6]')
+    FINANCE = (By.XPATH, '//ul[@class="nav-menu"]/li[7]')
 
 
     def get_messanger(self):

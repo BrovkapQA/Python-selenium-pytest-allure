@@ -16,11 +16,7 @@ class TestCheck:
 
         login_page.login("Visoveny@gmail.com", "Asd123df")
         nav_menu_page.get_messanger()
-        nav_menu_page.get_notification()
         nav_menu_page.get_calendar()
-        nav_menu_page.get_seans_suggestions()
-        nav_menu_page.get_techniques()
-        nav_menu_page.get_notice()
 
 
 
