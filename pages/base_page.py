@@ -12,7 +12,7 @@ class BasePage:
 
 
     def click(self, locator):
-        return Wait(self.driver, 10).until(EC.visibility_of_element_located(locator)).click()
+        return Wait(self.driver, 10).until(EC.element_to_be_clickable(locator)).click()
 
     def send_keys(self, locator, txt):
         return Wait(self.driver, 10).until(EC.element_to_be_clickable(locator)).send_keys(txt)
