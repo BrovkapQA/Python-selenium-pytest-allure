@@ -4,21 +4,23 @@ import pytest
 
 from pages.Nav_menu_page import NavMenuPage
 from pages.login_page import LoginPage
-
+from utilities import ExcelUtilities
 
 
 @pytest.mark.usefixtures("setup_and_teardown")
 class TestCheck:
 
-    def test_check_calendar(self):
+    @pytest.mark.parametrize("email_address, password",
+                                  ExcelUtilities.get_data_from_excel("ExcelData/UserData.xlsx", "ValidLogin"))
+    def test_check_calendar(self, email_address, password):
         login_page = LoginPage(self.driver)
         nav_menu_page = NavMenuPage(self.driver)
 
-        login_page.login("", "")
+        login_page.login(email_address, password)
         nav_menu_page.get_messanger()
         nav_menu_page.get_notification()
         nav_menu_page.get_calendar()
-        nav_menu_page.get_seans_suggestions()
+        nav_menu_page.get_session_suggestions()
         nav_menu_page.get_techniques()
         nav_menu_page.get_notice()
         nav_menu_page.get_akpp()
@@ -32,8 +34,3 @@ class TestCheck:
         nav_menu_page.get_testing()
         nav_menu_page.get_intervision()
         nav_menu_page.get_finance()
-        time.sleep(5)
-
-
-
-
