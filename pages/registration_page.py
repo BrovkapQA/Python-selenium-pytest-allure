@@ -15,6 +15,7 @@ class RegistrationPage(BasePage):
     REGISTRATION_PASSWORD = (By.XPATH, "//input[@id='password']")
     CONFIRM_BUTTON = (By.XPATH, "//button[@class='new-registration__btn']")
     CALENDAR = (By.XPATH, "//input[@id='birthDay']")
+    TITLE = (By.XPATH, '//h1[@class="login-screen__enter"]')
 
     @allure.step("Create a new user")
     def create_user(self, user_firstname, user_lastname, user_middlename, user_email, password, date):
@@ -24,3 +25,5 @@ class RegistrationPage(BasePage):
         self.send_keys(self.REGISTRATION_EMAIL, user_email)
         self.send_keys(self.REGISTRATION_PASSWORD, password)
         self.chose_date(self.CALENDAR, date)
+        self.click(self.TITLE)
+        self.click(self.CONFIRM_BUTTON)

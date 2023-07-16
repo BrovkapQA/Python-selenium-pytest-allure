@@ -27,10 +27,6 @@ class BasePage:
         element = self.driver.find_element(*locator)
         action.move_to_element(element).perform()
 
-    def select_month(self, locator, month):
-        dropdown = Select(Wait(self.driver, 10).until(EC.visibility_of_element_located(locator)))
-        return dropdown.select_by_visible_text(month)
-
     def switch_to_alert(self):
         return self.driver.switch_to.alert
 
@@ -38,7 +34,9 @@ class BasePage:
         datepicker_input = Wait(self.driver, 10).until(EC.element_to_be_clickable(locator))
         self.driver.execute_script("arguments[0].removeAttribute('readonly', '')", datepicker_input)
         datepicker_input.clear()
-        datepicker_input.send_keys(date)
+        date_str = date.strftime('%d.%m.%Y')
+        datepicker_input.send_keys(date_str)
 
-
-
+    def scroll_to_view_element(self, locator):
+        element = Wait(self.driver, 10).until(EC.visibility_of_element_located(locator))
+        self.driver.execute_script("return arguments[0].scrollIntoView(true);", element)
