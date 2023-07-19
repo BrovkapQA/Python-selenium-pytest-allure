@@ -19,11 +19,17 @@ class RegistrationPage(BasePage):
 
     @allure.step("Create a new user")
     def create_user(self, user_firstname, user_lastname, user_middlename, user_email, password, date):
-        self.send_keys(self.FIRSTNAME, user_firstname)
-        self.send_keys(self.LASTNAME, user_lastname)
-        self.send_keys(self.MIDDLENAME, user_middlename)
-        self.send_keys(self.REGISTRATION_EMAIL, user_email)
-        self.send_keys(self.REGISTRATION_PASSWORD, password)
-        self.chose_date(self.CALENDAR, date)
-        self.click(self.TITLE)
-        self.click(self.CONFIRM_BUTTON)
+        with allure.step("Send user firstname"):
+            self.send_keys(self.FIRSTNAME, user_firstname)
+            with allure.step("Send user lastname"):
+                self.send_keys(self.LASTNAME, user_lastname)
+                with allure.step("Send user middlename"):
+                    self.send_keys(self.MIDDLENAME, user_middlename)
+                    with allure.step("Send user email address"):
+                        self.send_keys(self.REGISTRATION_EMAIL, user_email)
+                        with allure.step("Send user password"):
+                            self.send_keys(self.REGISTRATION_PASSWORD, password)
+                            with allure.step("Сhoosing the date of birth"):
+                                self.chose_date(self.CALENDAR, date)
+                                self.click(self.TITLE)
+                                self.click(self.CONFIRM_BUTTON)
