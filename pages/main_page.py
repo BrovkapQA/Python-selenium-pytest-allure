@@ -18,7 +18,3 @@ class MainPage(BasePage):
     @allure.step("Get success authorization message")
     def successful_authorization(self):
         return self.get_text(self.SUCCESS_ALERT)
-
-    def get_calendar(self):
-        self.move_to_element(self.SESSION)
-        self.click(self.CALENDAR)

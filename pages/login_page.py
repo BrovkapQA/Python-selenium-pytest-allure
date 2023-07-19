@@ -23,12 +23,11 @@ class LoginPage(BasePage):
 
     @allure.step("Log in with username and password")
     def login(self, login_email, login_password):
-        with allure.step("send login email"):
+        with allure.step("Send login email"):
             self.send_keys(self.EMAIL, login_email)
-            with allure.step("send login password"):
+            with allure.step("Send login password"):
                 self.send_keys(self.PASSWORD, login_password)
-                with allure.step("click confirm button"):
-                    self.click(self.SUBMIT)
+                self.click(self.SUBMIT)
 
     @allure.step("Get authorization error message")
     def get_login_error(self):
@@ -42,6 +41,6 @@ class LoginPage(BasePage):
     def get_registration(self):
         return self.click(self.SPECIALIST_BUTTON)
 
-    @allure.step("Click forgot_password button")
+    @allure.step("Go to the forgot_password page")
     def click_forgot_password(self):
         return self.click(self.FORGOT_PASSWORD)

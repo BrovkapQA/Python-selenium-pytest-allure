@@ -1,4 +1,5 @@
 from selenium.webdriver import ActionChains, Keys
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait as Wait
 from selenium.webdriver.support import expected_conditions as EC
@@ -16,7 +17,7 @@ class BasePage:
         return Wait(self.driver, 10).until(EC.element_to_be_clickable(locator)).send_keys(txt)
 
     def clear_text(self, locator):
-        return Wait(self.driver, 10).until(EC.visibility_of_element_located(locator))
+        return Wait(self.driver, 10).until(EC.visibility_of_element_located(locator)).clear()
 
     def get_text(self, locator):
         return Wait(self.driver, 10).until(EC.visibility_of_element_located(locator)).text

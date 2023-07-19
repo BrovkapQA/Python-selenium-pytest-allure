@@ -24,14 +24,14 @@ class ForgotPasswordPage(BasePage):
             with allure.step("Confirm sending"):
                 self.click(self.CONFIRM_BUTTON)
 
-    @allure.step("Message about successful password reset")
+    @allure.step("Get message about successful password reset")
     def get_success_message(self):
         return self.get_text(self.SUCCESS_MESSAGE)
 
-    @allure.step("Message about a non-correct email")
+    @allure.step("Get message about a non-correct email")
     def get_invalid_email_message(self):
         return self.get_text(self.INVALID_EMAIL_MESSAGE)
 
-    @allure.step("Message about an unregistered email")
+    @allure.step("Get message about an unregistered email")
     def get_not_registered_user_message(self):
         return self.get_text(self.NOT_REGISTERED_USER_MESSAGE)
