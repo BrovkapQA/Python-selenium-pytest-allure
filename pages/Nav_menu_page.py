@@ -16,20 +16,15 @@ class NavMenuPage(BasePage):
     QUESTIONNAIRE = (By.XPATH, '//a[@href="/new-edit-profile"]')
     FAVORITES = (By.XPATH, '//a[@href="/bookmarks"]')
     SETTINGS = (By.XPATH, '//a[@href="/presets"]')
-
     MESSAGES = (By.XPATH, '//ul[@class="nav-menu"]/li[2]')  # and Notification locator
     MESSANGER = (By.XPATH, '//a[@href="/messenger"]')
-
     SESSIONS = (By.XPATH, '//ul[@class="nav-menu"]/li[3]')  # and Calendar locator
     SESSION_SUGGESTIONS = (By.XPATH, '//a[@href="/seance-suggestions"]')
     TECHNIQUES = (By.XPATH, '//a[@href="/techniques"]')
     NOTICE = (By.XPATH, '//a[@href="/cards"]')
-
     AKPP = (By.XPATH, '//ul[@class="nav-menu"]/li[4]')
-
     ASSOCIATION = (By.XPATH, '//ul[@class="nav-menu"]/li[5]')  # and Events locator
     CERTIFICATES = (By.XPATH, '//a[@href="/person/certificates"]')
-
     LEARNING = (By.XPATH, '//ul[@class="nav-menu"]/li[6]')  # and Courses locator
     SUPERVISION_WITHOUT_COURSE = (By.XPATH, '//a[@href="/supervision-without-course"]')
     PERSONAL_ACCOUNT_INDIVIDUAL_THERAPIES = (By.XPATH, '//a[@href="/study/therapy/client"]')
@@ -37,7 +32,6 @@ class NavMenuPage(BasePage):
     TECHNIQUES_AND_SKILLS = (By.XPATH, '//a[@href="/study/tas"]')
     TESTING = (By.XPATH, '//a[@href="/study/tests/list"]')
     INTERSVISION = (By.XPATH, '//a[@href="/study/tests/list"]')
-
     FINANCE = (By.XPATH, '//ul[@class="nav-menu"]/li[7]')
 
     @allure.step("Go to the messanger page")

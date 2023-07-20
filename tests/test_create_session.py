@@ -20,5 +20,5 @@ class TestCreateSession:
 
         login_page.login(email_address, password)
         nav_menu_page.get_calendar()
-        calendar_page.create_session(date, st_hour, st_minutes, end_hour, end_minutes)
+        calendar_page.create_individual_session(date, st_hour, st_minutes, end_hour, end_minutes)
 
