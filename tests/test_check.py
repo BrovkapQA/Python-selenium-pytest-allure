@@ -6,7 +6,7 @@ from utilities import ExcelUtilities
 class TestCheck(BaseTest):
 
     @pytest.mark.parametrize("email_address, password",
-                             ExcelUtilities.get_data_from_excel("ExcelData/UserData.xlsx", "ValidLogin"))
+                             ExcelUtilities.get_data_from_excel("Data/data.xlsx", "ValidLogin"))
     def test_check_calendar(self, email_address, password):
         self.login_page.login(email_address, password)
         self.nav_menu_page.get_akpp()

@@ -1,0 +1,15 @@
+{
+  "forgot_password": {
+    "success_message": "Проверьте вашу электронную почту для дальнейших инструкций по сбросу пароля",
+    "error_message_unregistered_user": "Пользователь с таким email не зарегистрирован"
+  },
+  "login": {
+    "success_login": "Вы успешно авторизовались",
+    "error_login": "Неверный логин или пароль! Попробуйте снова",
+    "error_without_login_or_password": "Это поле обязательное",
+    "uncorrected_email": "Некорректный email"
+  },
+  "registration": {
+    "success_registration": "Спасибо за регистрацию!"
+  }
+}

@@ -8,7 +8,7 @@ from utilities import ExcelUtilities
 class TestRegistration(BaseTest):
 
     @pytest.mark.parametrize("name, middle_name, last_name, email, password, birthday",
-                             ExcelUtilities.get_data_from_excel("ExcelData/UserData.xlsx", "ValidUserRegistration"))
+                             ExcelUtilities.get_data_from_excel("configuration/data.xlsx", "ValidUserRegistration"))
     @allure.title("Registration a new user with valid date")
     def test_valid_authorization(self, name, middle_name, last_name, email, password, birthday):
         self.login_page.get_registration()

@@ -17,7 +17,7 @@ Run the tests using pytest by executing the following command terminal:
 > 
 >pytest -sv --alluredir=allure_results
 ### *Viewing the report*
->allure serve <reports directory path>
+>allure serve *reports directory path*
 ___
 
 ### Project Structure

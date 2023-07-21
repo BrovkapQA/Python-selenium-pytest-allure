@@ -1,6 +1,9 @@
 import pytest
+import os
+import json
 from selenium import webdriver
-
+from globals import dir_global
+from globals.dir_global import ROOT_DIR
 from pages.Nav_menu_page import NavMenuPage
 from pages.akpp_page import AkppPage
 from pages.calendar_page import CalendarPage
@@ -9,6 +12,14 @@ from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.registration_page import RegistrationPage
 from utilities import ReadConfiguration
+
+
+@pytest.fixture(scope="session")
+def json_data() -> dict:
+    json_path = os.path.join(dir_global.DATA_FILES_PATH, "test_data.json")
+    with open(json_path, "r", encoding="utf-8") as json_file:
+        data = json.load(json_file)
+    return data
 
 
 def pytest_runtest_setup(item):
