@@ -1,7 +1,8 @@
 {
   "forgot_password": {
     "success_message": "Проверьте вашу электронную почту для дальнейших инструкций по сбросу пароля",
-    "error_message_unregistered_user": "Пользователь с таким email не зарегистрирован"
+    "error_message_unregistered_user": "Пользователь с таким email не зарегистрирован",
+    "uncorrected_email": "Некорректный email"
   },
   "login": {
     "success_login": "Вы успешно авторизовались",

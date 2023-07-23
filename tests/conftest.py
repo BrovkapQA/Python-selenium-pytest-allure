@@ -4,14 +4,15 @@ import json
 from selenium import webdriver
 from globals import dir_global
 from globals.dir_global import ROOT_DIR
-from pages.Nav_menu_page import NavMenuPage
+from pages.bottom_nav_menu import BottomNavMenu
+from pages.main_nav_menu import NavMenuPage
 from pages.akpp_page import AkppPage
 from pages.calendar_page import CalendarPage
 from pages.forgot_password_page import ForgotPasswordPage
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.registration_page import RegistrationPage
-from utilities import ReadConfiguration
+from utilities import configuration_utilities
 
 
 @pytest.fixture(scope="session")
@@ -24,7 +25,7 @@ def json_data() -> dict:
 
 def pytest_runtest_setup(item):
     global driver
-    browser = ReadConfiguration.read_configuration("basic info", "browser")
+    browser = configuration_utilities.read_configuration("basic info", "browser")
     if browser.__eq__("chrome"):
         driver = webdriver.Chrome()
     elif browser.__eq__("firefox"):
@@ -34,8 +35,9 @@ def pytest_runtest_setup(item):
     else:
         print("Provide a valid browser name from this list chrome/firefox/edge")
 
+    print("Running test:", item.name)
     driver.maximize_window()
-    base_url = ReadConfiguration.read_configuration("basic info", "url")
+    base_url = configuration_utilities.read_configuration("basic info", "url")
     driver.get(base_url)
     item.cls.driver = driver
     item.cls.login_page = LoginPage(driver)
@@ -45,6 +47,7 @@ def pytest_runtest_setup(item):
     item.cls.forgot_password_page = ForgotPasswordPage(driver)
     item.cls.registration_page = RegistrationPage(driver)
     item.cls.akpp_page = AkppPage(driver)
+    item.cls.bottom_nav_menu = BottomNavMenu(driver)
 
 
 def pytest_runtest_teardown():

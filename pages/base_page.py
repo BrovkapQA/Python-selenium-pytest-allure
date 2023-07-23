@@ -39,3 +39,6 @@ class BasePage:
     def scroll_to_view_element(self, locator):
         element = Wait(self.driver, 10).until(EC.visibility_of_element_located(locator))
         self.driver.execute_script("return arguments[0].scrollIntoView(true);", element)
+
+    def scroll_to_bottom(self):
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")

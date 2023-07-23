@@ -1,4 +1,5 @@
-from pages.Nav_menu_page import NavMenuPage
+from pages.bottom_nav_menu import BottomNavMenu
+from pages.main_nav_menu import NavMenuPage
 from pages.akpp_page import AkppPage
 from pages.calendar_page import CalendarPage
 from pages.forgot_password_page import ForgotPasswordPage
@@ -15,3 +16,4 @@ class BaseTest:
     forgot_password_page: ForgotPasswordPage
     registration_page: RegistrationPage
     akpp_page: AkppPage
+    bottom_nav_menu: BottomNavMenu
