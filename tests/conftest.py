@@ -2,6 +2,8 @@ import pytest
 import os
 import json
 from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
+
 from globals import dir_global
 from globals.dir_global import ROOT_DIR
 from pages.bottom_nav_menu import BottomNavMenu
@@ -40,14 +42,16 @@ def pytest_runtest_setup(item):
     base_url = configuration_utilities.read_configuration("basic info", "url")
     driver.get(base_url)
     item.cls.driver = driver
-    item.cls.login_page = LoginPage(driver)
-    item.cls.main_page = MainPage(driver)
-    item.cls.nav_menu_page = NavMenuPage(driver)
-    item.cls.calendar_page = CalendarPage(driver)
-    item.cls.forgot_password_page = ForgotPasswordPage(driver)
-    item.cls.registration_page = RegistrationPage(driver)
-    item.cls.akpp_page = AkppPage(driver)
-    item.cls.bottom_nav_menu = BottomNavMenu(driver)
+    wait = WebDriverWait(driver, 10)
+    item.cls.wait = wait
+    item.cls.login_page = LoginPage(driver, wait)
+    item.cls.main_page = MainPage(driver, wait)
+    item.cls.nav_menu_page = NavMenuPage(driver, wait)
+    item.cls.calendar_page = CalendarPage(driver, wait)
+    item.cls.forgot_password_page = ForgotPasswordPage(driver, wait)
+    item.cls.registration_page = RegistrationPage(driver, wait)
+    item.cls.akpp_page = AkppPage(driver, wait)
+    item.cls.bottom_nav_menu = BottomNavMenu(driver, wait)
 
 
 def pytest_runtest_teardown():
