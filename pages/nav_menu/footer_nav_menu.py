@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 
 
-class BottomNavMenu(BasePage):
+class FooterNavMenu(BasePage):
 
     def __init__(self, driver, wait):
         super().__init__(driver, wait)

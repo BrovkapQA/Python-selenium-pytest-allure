@@ -5,9 +5,8 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 
 from globals import dir_global
-from globals.dir_global import ROOT_DIR
-from pages.bottom_nav_menu import BottomNavMenu
-from pages.main_nav_menu import NavMenuPage
+from pages.nav_menu.footer_nav_menu import FooterNavMenu
+from pages.nav_menu.main_nav_menu import MainNavMenu
 from pages.akpp_page import AkppPage
 from pages.calendar_page import CalendarPage
 from pages.forgot_password_page import ForgotPasswordPage
@@ -46,12 +45,12 @@ def pytest_runtest_setup(item):
     item.cls.wait = wait
     item.cls.login_page = LoginPage(driver, wait)
     item.cls.main_page = MainPage(driver, wait)
-    item.cls.nav_menu_page = NavMenuPage(driver, wait)
+    item.cls.main_nav_menu = MainNavMenu(driver, wait)
     item.cls.calendar_page = CalendarPage(driver, wait)
     item.cls.forgot_password_page = ForgotPasswordPage(driver, wait)
     item.cls.registration_page = RegistrationPage(driver, wait)
     item.cls.akpp_page = AkppPage(driver, wait)
-    item.cls.bottom_nav_menu = BottomNavMenu(driver, wait)
+    item.cls.footer_nav_menu = FooterNavMenu(driver, wait)
 
 
 def pytest_runtest_teardown():
